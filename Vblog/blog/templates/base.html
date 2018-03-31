@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A portfolio template that uses Material Design Lite.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Blog Website: {{home_title}}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-pink.min.css" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {% block head_content %}
+    {% endblock %}
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+            <div class="mdl-layout__header-row portfolio-logo-row">
+                <span class="mdl-layout__title">
+                    <div class="portfolio-logo"></div>
+                    <span class="mdl-layout__title">Simple Blog website</span>
+                </span>
+            </div>
+            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                    <a class="mdl-navigation__link is-active" href="{% url 'index'%}">Blogs</a>
+                    <!-- <a class="mdl-navigation__link" href="#">Blog</a> -->
+                    <a class="mdl-navigation__link" href="{% url 'about_us'%}">About</a>
+                    <a class="mdl-navigation__link" href="#">Contact</a>
+                    <form id="searchform" action=""  method="GET" >
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                     <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                       <i class="material-icons">search</i>
+                     </label>
+                       <div class="mdl-textfield__expandable-holder">
+                         <input class="mdl-textfield__input" type="text" id="sample6">
+                         <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                       </div>
+                     </div>
+				            </form>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                <a class="mdl-navigation__link is-active" href="{% url 'index'%}">Blogs</a>
+                <!-- <a class="mdl-navigation__link" href="blog.html">Blog</a> -->
+                <a class="mdl-navigation__link" href="{% url 'about_us'%}">About</a>
+                <a class="mdl-navigation__link" href="contact.html">Contact</a>
+                <form id="searchform" action=""  method="GET" >
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                 <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                   <i class="material-icons">search</i>
+                 </label>
+                   <div class="mdl-textfield__expandable-holder">
+                     <input class="mdl-textfield__input" type="text" id="sample6">
+                     <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                   </div>
+                 </div>
+                </form>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+        {% block body%}
+        {% endblock%}
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">Simple portfolio website</div>
+                </div>
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list">
+                        <li>Design by: <a href="#">ABC</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+                {% block footer %}
+                {% endblock %}
+            </footer>
+        </main>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>
